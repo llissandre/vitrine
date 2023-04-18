@@ -1,11 +1,72 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A changer</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Pour inclure la feuille de style qui se trouve dans assets -->
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <!-- Ajout des polices avec google fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet" />
+  <title>Page vitrine</title>
 </head>
+
 <body>
+  <!-- En tête de ma page HTML -->
+  <header>
+    <!-- LOGO -->
+    <img id="logo" src="./assets/img/logo-small.png" alt="Le logo de unreal engine en blanc" />
+    <!-- END-LOGO -->
+
+    <!-- Menu principal -->
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Products</a></li>
+      </ul>
+    </nav>
+    <!-- END Menu principal -->
+  </header>
+  <!-- END HEADER -->
+
+  <!-- MAIN -->
+  <main>
+    <article>
+      <!-- HERO SECTION -->
+      <section id="hero-section">
+
+        <video class="bg-video"
+          src="https://cdn2.unrealengine.com/Unreal+Engine%2Fhome%2FMainPage-81570d63f80f565cfe5992d8ecc0916a19074573.mp4"
+          autoplay loop muted></video>
+
+        <div class="hero-content">
+          <img src="./assets/img/logo.png" alt="Le logo de unreal engine en colonne en blanc" />
+
+          <div class="hero-content-details">
+            <h1 class="hero-title">Make something Unreal</h1>
+            <p>
+              Unreal Engine is the world's most open and advanced real-time 3D
+              creation tool. Continuously evolving to serve not onlly its original purpose as a
+              state-of-the-art game engine,today it gives creators across
+              industries the freedom and control to deliver cutting-edge content,interactive experiences,and immersive
+              virtual
+              worlds.
+            </p>
+            <a href="#" class="button">get started now</a>
+          </div>
+        </div>
+
+      </section>
+      <!-- END HERO SECTION -->
+    </article>
+  </main>
 </body>
+
 </html>

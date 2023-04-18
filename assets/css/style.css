@@ -1,0 +1,289 @@
+/* Sélecteur de la racine du document HTML (élement html) */
+/* html { */
+:root {
+    /* Changement de la méthode de calcul des boîtes */
+    box-sizing: border-box;
+
+    /* Prise en compte de 100% de la taille de la police utilisateur */
+    font-size: 1rem;
+
+    /* Changement de la police en Roboto */
+    font-family: 'Roboto', arial, sans-serif;
+
+    /* Déclarations de variables pour les couleurs */
+    --text-anchor-color: white;
+    --text-anchor-color-hover: rgb(218, 127, 24);
+    --backgroung-button-color: rgb(6, 118, 209);
+    --background-header-color: #333;
+    --background-section-color: black;
+}
+
+/* Sélectionne tous les éléments  + pseudo élément before et after */
+*,
+*::after,
+*::before {
+    /* Forcer l'héritage de la propriété box-sizing */
+    box-sizing: inherit;
+}
+
+/* Sélection des ancres */
+a {
+    /* couleur du texte : blanc */
+    color: var(--text-anchor-color);
+
+    /* suppression de la decoration du texte */
+    text-decoration: none;
+}
+
+/* Sélection des ancres de la classe button */
+a.button {
+    /* background-color à rgb(6, 118, 209) */
+    background-color: var(--backgroung-button-color);
+
+    /* Marge interne pour ressembler à un bouton 16px top et bottom et 32px pour les cotés */
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    /* Changement du curseur en pointer */
+    cursor: pointer;
+
+    /* Mettre le texte en gras */
+    font-weight: bold;
+
+    /* Mettre le texte en Capitale */
+    text-transform: uppercase;
+}
+
+/* sélection du body */
+body {
+    /* Enlève la marge extérieure par défaut du body */
+    margin: 0;
+
+    /* couleur du texte en blanc */
+    color: white;
+}
+
+/* HEADER */
+
+/* sélection du header */
+header {
+    /* Marge interne gauche et droite à 2%  et haut bas 8px*/
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    /* Hauteur du header : 60px */
+    height: 60px;
+
+    /* Changement de la couleur de fond à #333 */
+    background-color: var(--background-header-color);
+
+    /* On change la boîte en boîte flexible */
+    display: flex;
+
+    /* On met l'axe principal horizontalement */
+    flex-direction: row;
+
+    /* Espacement entre les éléments enfants */
+    justify-content: space-between;
+
+    /* Alignement centré sur l'axe secondaire (ici horizontal) */
+    align-items: center;
+}
+
+/* sélection des ul dans des nav dans le header */
+header nav ul {
+    /* Enlève le style par défaut d'une liste */
+    list-style-type: none;
+
+    /* affichage en boîte flexible */
+    display: flex;
+
+    /* direction du flex sur la ligne */
+    flex-direction: row;
+
+    /* Espacement entre les enfants (propriété de flex)
+           Il existe aussi row-gap pour l'espacement entre les lignes;
+        */
+    column-gap: 10px;
+    /* row-gap: 1em; */
+
+    /* Retrait des marges internes et externes par défaut des listes (user-agent ou agent utilisateur) */
+    /* Utile dans le cas présent pour le retrait la marge interne gauche de ul */
+    margin: 0;
+    padding: 0;
+}
+
+/* sélection des a dans les ul dans des nav dans le header */
+header nav ul a {
+    /* Transition de 1s si la couleur change sur l'élément a du menu principal */
+    transition: 1s color ease-in;
+}
+
+/* sélection des a dans les ul survolés dans des nav dans le header */
+header nav ul a:hover {
+    /* Changement de couleur au passage de la souris rgb(218, 127, 24) */
+    color: var(--text-anchor-color-hover);
+}
+
+/* sélection du logo */
+#logo {
+    /* hauteur à 100% */
+    height: 100%;
+}
+
+/* END HEADER */
+
+/* HERO SECTION */
+
+/* Sélection de l'élément avec l'id hero-section */
+#hero-section {
+    /* Point d'ancrage de la position absolute de la vidéo  */
+    position: absolute;
+    /* position: relative; */
+
+    /* Fonction pour calculer la hauteur du viewport(écran) - la hauteur du header */
+    height: calc(100vh - 60px);
+
+    /* affichage du contenu en flex */
+    display: flex;
+
+    /* direction du flex : column */
+    flex-direction: column;
+    /* flex-direction: row; */
+
+    /* centrage des éléments sur l'axe secondaire */
+    align-items: center;
+    /* justify-content: center; */
+
+    /* Ligne ajoutée pour "lier" la section au header */
+    /* largeur de 100% du parent */
+    width: 100%;
+    /* height: 100%; */
+}
+
+/* sélection des éléments avec la classe bg-video */
+*.bg-video {
+    /* Enlever la vidéo du flux normal d'affichage */
+    position: absolute;
+    /* position: relative; */
+
+    /* Position de la vidéo par rapport bord supérieur de son parent relatif(position autre que initiale) */
+    top: 0;
+
+    /* Position de la vidéo par rapport au bord gauche de son parent relatif(position autre que initiale) */
+    left: 0;
+
+    /* Prendre toute la largeur de son parent */
+    width: 100%;
+
+    /* Prendre toute la hauteur de son parent */
+    height: 100%;
+
+    /* Placé derrière les éléments */
+    z-index: -2;
+
+    /* Couvrir les espaces manquants */
+    object-fit: cover;
+
+    /* Garder le centre de la vidéo */
+    object-position: center;
+    /* Ou alternative */
+    /* object-position: 50% 50%; */
+}
+
+/* Ajout d'un élément à la suite de l'élément d'id hero-section */
+#hero-section::after {
+    /* Définition du contenu même pour créer l'élément html */
+    content: '';
+
+    /* Définition du display */
+    display: flex;
+
+    /* Hauteur et largeur de 100% du parent */
+    height: 100%;
+    width: 100%;
+
+    /* Filtre de la vidéo en position absolute */
+    position: absolute;
+
+    /* Position dans le coin supérieur gauche */
+    top: 0;
+    left: 0;
+
+    /* Définit une couleur de fond noir avec une faible opacité */
+    background-color: var(--background-section-color);
+    opacity: 0.3;
+    /* opacity: 1; */
+
+    /* On place le filtre entre le texte et la vidéo dans l'arrière plan */
+    z-index: -1;
+}
+
+/* sélection des élements de classe hero-content */
+*.hero-content {
+    /* affichage du contenu en flex */
+    display: flex;
+
+    /* direction du flex: column */
+    flex-direction: column;
+
+    /* centrage des éléments sur l'axe secondaire */
+    align-items: center;
+
+    /* axe principale : space-around */
+    justify-content: space-around;
+
+    /* largeur : 70% du parent */
+    width: 70%;
+
+    /* hauteur : 100% du parent */
+    height: 100%;
+}
+
+/* sélection des img enfants direct des éléments de classe hero-content */
+*.hero-content>img {
+    /* Hauteur de la boîte fixé à 20 pixels */
+    height: 200px;
+}
+
+/* sélection des éléments de classe hero-content-details enfants direct des éléments de classe hero-content */
+*.hero-content-details {
+    /* exception de l'alignement sur l'axe secondaire : flex-start */
+    align-self: flex-start;
+
+    /* largeur : 60% du parent */
+    width: 60%;
+
+    /* marge intérieur top de 10% du parent*/
+    padding-bottom: 10%;
+}
+
+/* sélection des h1 dans les éléments de classe hero-content-details enfants direct des éléments de classe hero-content */
+*.hero-content-details>h1 {
+    /* 2 * la valeur de la police du root élément */
+    font-size: 2rem;
+}
+
+/* sélection des p dans les éléments de classe hero-content-details enfants direct des éléments de classe hero-content */
+
+*.hero-content-details>p {
+    /*  1.1 fois la valeur de la police du root élément*/
+    /* font-size: 1.1rem; */
+
+    /* font-size modifié pour avoir le même retour à la ligne que sur l'image dans l'exercice */
+    font-size: 1.25rem;
+
+    /*  2 * la hauteur du font-size de p */
+    /* ine-height définit la hauteur des lignes de texte. La hauteur des lignes n'est pas égale à la taille des caractères : elle inclut en plus un espace au dessus et en dessous des lettres. Ceci afin que les lettres ne se touchent pas d'une ligne sur l'autre. */
+    line-height: 2rem;
+
+    /* Ligne ajoutée pour avoir un espace identique entre le paragraphe et le button que sur l'image dans l'exercice */
+    /* marge extérieure bottom de 30px */
+    margin-bottom: 30px;
+}
+
+/* END HERO SECTION */
